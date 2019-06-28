@@ -1,3 +1,4 @@
 node_modules
 ethereum/rinkeby.js
 .DS_Store
+.next
