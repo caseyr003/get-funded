@@ -1,5 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import factory from '../ethereum/factory';
 
-export default () => {
-    return <h1>Show</h1>
+class CampaignHome extends Component {
+    async componentDidMount() {
+        const campaigns = await factory.methods.getDeployedCampaigns().call();
+        console.log(campaigns);
+    }
+
+    render() {
+        return(<h1>Campaigns</h1>);
+    }
 }
+
+export default CampaignHome;
