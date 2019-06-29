@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import rinkebyURL from './rinkeby';
+const { rinkebyURL } = require('./rinkeby');
 
 let web3;
 
