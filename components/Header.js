@@ -9,7 +9,7 @@ export default class Header extends Component {
     render(){
         const { activeItem } = this.state
         return (
-            <Menu>
+            <Menu style={{ marginTop: '20px' }}>
                 <Menu.Item
                     name='home'
                     active={activeItem === 'home'}

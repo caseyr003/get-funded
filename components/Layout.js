@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import { Container } from 'semantic-ui-react';
 
 export default class Layout extends Component {
     render(){
         return (
-            <div>
+            <Container>
                 <Header />
                 {this.props.children}
-            </div>
+            </Container>
 
         );
     }
