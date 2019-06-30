@@ -8,12 +8,14 @@ class CampaignNew extends Component {
 
     state = {
         minimumContribution: '',
-        errorMessage: ''
+        errorMessage: '',
+        loading: false
     };
 
     onSubmit = async () => {
         event.preventDefault();
 
+        this.setState({ loading: true, errorMessage: '' });
         try{
             const accounts = await web3.eth.getAccounts();
 
@@ -25,7 +27,7 @@ class CampaignNew extends Component {
         } catch (err) {
             this.setState({ errorMessage: err.message });
         }
-
+        this.setState({ loading: false });
     };
 
     render() {
@@ -45,7 +47,7 @@ class CampaignNew extends Component {
                         <Checkbox label='I agree to the Terms and Conditions' />
                     </Form.Field>
                     <Message error header="Oops! A new campaign could not be created." content={this.state.errorMessage} />
-                    <Button type='submit' primary>Create</Button>
+                    <Button type='submit' primary loading={this.state.loading}>Create</Button>
                 </Form>
             </Layout>
         );
